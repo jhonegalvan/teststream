@@ -1,0 +1,174 @@
+﻿
+<html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Colina Stereo">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#1d2b64">
+  <meta name="msapplication-navbutton-color" content="#1d2b64">
+  <meta name="apple-touch-fullscreen" content="yes">
+
+  <meta property="og:title" content="Colina Stereo">
+  <meta property="og:description" content="Colina Stereo">
+
+  <!-- Manifiesto de PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <title>Colina Stereo Player</title>
+
+  <!-- Iconos de iOS mejorados -->
+  <link rel="apple-touch-icon" href="removed.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/ios-icons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/ios-icons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/ios-icons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/ios-icons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/ios-icons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/ios-icons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/ios-icons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/ios-icons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="assets/ios-icons/apple-icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/ios-icons/apple-icon-180x180.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/Favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/Favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/Favicon/favicon-48x48.png">
+  <link rel="icon" href="assets/Favicon/favicon.ico" type="image/x-icon">
+
+  <!-- iPhone 14 Pro Max / 13 Pro Max / 12 Pro Max (430 x 932 pts, 3x) 1290x2796 -->
+  <link rel="apple-touch-startup-image" href="assets/ios-splash/splash-1290x2796.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+
+  <!-- iPhone 14 / 14 Pro / 13 / 13 Pro / 12 / 12 Pro (390 x 844 pts, 3x) 1170x2532 -->
+  <link rel="apple-touch-startup-image" href="assets/ios-splash/splash-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+
+  <!-- iPhone 14 Plus / 13 Mini (428 x 926 pts, 3x) 1284x2778 -->
+  <link rel="apple-touch-startup-image" href="assets/ios-splash/splash-1284x2778.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+
+  <!-- iPhone SE (2nd gen) / 8 / 7 / 6s / 6 (375 x 667 pts, 2x) 750x1334 -->
+  <link rel="apple-touch-startup-image" href="assets/ios-splash/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+
+  <!-- iPhone XR / 11 (414 x 896 pts, 2x) 828x1792 -->
+  <link rel="apple-touch-startup-image" href="assets/ios-splash/splash-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+
+  <!-- iPhone 11 Pro / XS / X (375 x 812 pts, 3x) 1125x2436 -->
+  <link rel="apple-touch-startup-image" href="assets/ios-splash/splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <img id="backgroundArt" class="background-art" alt="Background album artwork" src="" width="100%" height="100%">
+  <div class="player">
+    <div class="visualizer-container">
+      <img id="albumArt" class="album-art" alt="Album artwork" src="" width="300" height="300">
+      <div class="circle-visualizer"></div>
+      <div class="wave-container" style="opacity: 0; transition: opacity 0.5s ease; display: none">
+        <div class="wave"></div>
+        <div class="wave" style="animation-delay: 0.2s"></div>
+        <div class="wave" style="animation-delay: 0.4s"></div>
+        <div class="wave" style="animation-delay: 0.6s"></div>
+        <div class="wave" style="animation-delay: 0.8s"></div>
+      </div>
+    </div>
+    <div class="content">
+      <div class="station-info">
+        <div class="station-name" style="text-transform: uppercase; letter-spacing: 2px; position: relative; display: inline-block;">Radio con altura
+          <span style="position: absolute; bottom: -10px; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #d33253, transparent); border-radius: 2px;"></span>
+        </div>
+        <div class="now-playing">
+          <span class="live-badge"><span class="live-dot"></span>En Vivo</span>
+          <div id="songInfo">Cargando Información...</div>
+          <div id="artistInfo"></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="play-btn" id="playBtn">
+          <svg width="40" height="40" viewbox="0 0 24 24" fill="white">
+            <path d="M8 5v14l11-7z"></path>
+          </svg>
+        </button>
+        <div class="volume-control">
+          <svg width="24" height="24" viewbox="0 0 24 24" fill="white">
+            <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.06c1.48-.74 2.5-2.26 2.5-4.03zm2.5 0c0 3.04-1.64 5.64-4.07 6.94l1.43 1.43C18.25 19.06 20 15.71 20 12s-1.75-7.06-4.64-9.37l-1.43 1.43C17.36 6.36 19 8.96 19 12z">
+            </path>
+          </svg>
+          <input type="range" class="volume-slider" min="0" max="100" value="100" id="volumeSlider">
+          <div class="volume-percentage" id="volumePercentage">100%</div>
+        </div>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/cadenadenoticiassanluis/" target="_blank"><img src="assets/social-icons/facebook.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/cadenadenoticiassanluis/" target="_blank"><img src="assets/social-icons/instagram.png" alt="Instagram"></a>
+        <a href="https://tiktok.com" target="_blank"><img src="assets/social-icons/tiktok.png" alt="Tiktok"></a>
+        <a href="https://api.whatsapp.com/send/?phone=5492664337550" target="_blank"><img src="assets/social-icons/whatsapp.png" alt="WhtasApp"></a>
+      </div>
+    </div>
+  </div>
+  <!--
+  <button class="menu-btn" id="menuBtn">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+      <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+    </svg>
+  </button>
+  <div class="social-menu" id="socialMenu">
+    <a href="https://www.facebook.com/cadenadenoticiassanluis/" class="social-link" target="_blank">
+    <img src="assets/facebook.png" alt="Facebook" style="height: 24px; vertical-align: middle; margin-right: 5px;">
+      Facebook
+    </a>
+    <a href="https://www.instagram.com/cadenadenoticiassanluis/" class="social-link" target="_blank">
+    <img src="assets/instagram.png" alt="Instagram" style="height: 24px; vertical-align: middle; margin-right: 5px;">
+      Instagram
+    </a>
+
+    <a href="https://www.tiktok.com/" class="social-link" target="_blank">
+    <img src="assets/tiktok.png" alt="Instagram" style="height: 24px; vertical-align: middle; margin-right: 5px;">
+      TikTok
+    </a>
+    <a href="https://api.whatsapp.com/send/?phone=5492664337550" class="social-link" target="_blank">
+    <img src="assets/whatsapp.png" alt="Instagram" style="height: 24px; vertical-align: middle; margin-right: 5px;">
+      WhatsApp
+    </a>
+  </div>
+  -->
+  <div class="app-store-buttons">
+    <a href="https://play.google.com/store/apps/details?id=com.arielflomenbaum.cadenadenoticias" class="store-btn" target="_blank">
+      <svg viewbox="0 0 24 24" fill="white">
+        <path d="M6,18c0,0.55 0.45,1 1,1h1v3.5c0,0.83 0.67,1.5 1.5,1.5s1.5-0.67 1.5-1.5V19h2v3.5c0,0.83 0.67,1.5 1.5,1.5s1.5-0.67 1.5-1.5V19h1c0.55,0 1,-0.45 1,-1V8H6v10zM3.5,8C2.67,8 2,8.67 2,9.5v7c0,0.83 0.67,1.5 1.5,1.5S5,17.33 5,16.5v-7C5,8.67 4.33,8 3.5,8zM20.5,8c-0.83,0 -1.5,0.67 -1.5,1.5v7c0,0.83 0.67,1.5 1.5,1.5s1.5,-0.67 1.5,-1.5v-7c0,-0.83 -0.67,-1.5 -1.5,-1.5zM15.53,2.16l1.3,-1.3c0.2,-0.2 0.2,-0.51 0,-0.71 -0.2,-0.2 -0.51,-0.2 -0.71,0l-1.48,1.48C13.85,1.23 12.95,1 12,1c-0.96,0 -1.86,0.23 -2.66,0.63L7.85,0.15c-0.2,-0.2 -0.51,-0.2 -0.71,0 -0.2,0.2 -0.2,0.51 0,0.71l1.31,1.31C6.97,3.26 6,5.01 6,7h12c0,-1.99 -0.97,-3.75 -2.47,-4.84zM10,5H9V4h1v1zM15,5h-1V4h1v1z">
+        </path>
+      </svg>
+      Play Store
+    </a>
+  </div>
+  <!-- Instalar ventana emergente modal -->
+  <div id="installModal" class="install-modal hidden">
+    <div class="install-modal-content">
+      <button id="closeInstallModal" class="install-modal-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <img src="assets/logo.png" alt="Radio Play Logo" class="install-modal-logo">
+      <h3 class="install-modal-title">INSTALAR Colina Stereo</h3>
+      <p class="install-modal-description">Lleva tu música a todas partes. Instala la aplicación para una experiencia
+        más rápida.</p>
+      <button id="installAppBtn" class="install-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        <span>Instalar Ahora</span>
+      </button>
+      <button id="dismissInstallBtn" class="dismiss-btn">Quizás más tarde!</button>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+
+</html></html>
